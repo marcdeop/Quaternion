@@ -85,8 +85,7 @@ QT5_ADD_RESOURCES(quaternion_QRC_SRC ${quaternion_QRC})
 
 # Tell CMake to create the executable
 # (and that on Windows it should be a GUI executable)
-# TODO: MacOS builders, should MACOSX_BUNDLE be specified here as well?
-add_executable(quaternion WIN32 ${quaternion_SRCS} ${quaternion_QRC_SRC})
+add_executable(quaternion MACOSX_BUNDLE WIN32 ${quaternion_SRCS} ${quaternion_QRC_SRC})
 
 target_link_libraries(quaternion qmatrixclient Qt5::Widgets Qt5::Quick Qt5::Qml Qt5::Gui Qt5::Network)
 
@@ -97,7 +96,9 @@ if (NOT CMAKE_INSTALL_BINDIR)
 endif()
 
 install(TARGETS quaternion
-        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        BUNDLE DESTINATION ${CMAKE_INSTALL_BINDIR}
+        )
 if(LINUX)
     install(FILES linux/quaternion.desktop
             DESTINATION  ${CMAKE_INSTALL_DATADIR}/applications
