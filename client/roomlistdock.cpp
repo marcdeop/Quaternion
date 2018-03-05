@@ -215,5 +215,5 @@ void RoomListDock::addTagsSelected()
 
 void RoomListDock::refreshTitle()
 {
-    setWindowTitle(tr("Rooms (%1)").arg(model->rowCount(QModelIndex())));
+    setWindowTitle(tr("Room(s) (%n)", "", model->rowCount(QModelIndex())));
 }

@@ -55,5 +55,5 @@ void UserListDock::setRoom(QMatrixClient::Room* room)
 
 void UserListDock::refreshTitle()
 {
-    setWindowTitle(tr("Users (%1)").arg(m_model->rowCount(QModelIndex())));
+    setWindowTitle(tr("User(s) (%n)", "", m_model->rowCount(QModelIndex())));
 }
